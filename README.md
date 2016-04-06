@@ -177,8 +177,6 @@ and you should see the same message come back.
 
 #### [Kirk Chu](https://www.pivotaltracker.com/story/show/116834227)
 
-(https://www.pivotaltracker.com/story/show/116834227)
-
 Write a test for the ping endpoint such that it outputs JSON documentation
 using the [Zipmark RSpec api documentation gem.](https://github.com/zipmark/rspec_api_documentation)
 
