@@ -1,5 +1,5 @@
-## 1 [Set up Rails 5 (without having Rails installed)](https://github.com/charliemcelfresh/sarcastic_messages/commit/ba43396bd8f6888962c6f36a761a56acc13b3c17)
-#### Richard Cheng
+## [Set up Rails 5 (without having Rails installed)](https://www.pivotaltracker.com/story/show/116834213)
+#### [Richard Cheng's commit](https://github.com/charliemcelfresh/sarcastic_messages/commit/ba43396bd8f6888962c6f36a761a56acc13b3c17)
 
 + Rails 5  
 + Ruby 2.3.0  
