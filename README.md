@@ -173,7 +173,11 @@ and you should see the same message come back.
 ---
 ---
 
-## [Add RSpec](https://www.pivotaltracker.com/story/show/116834227)
+## [Add RSpec](https://github.com/charliemcelfresh/sarcastic_messages/commit/e1c6368afb66fcda3f9b4dd39c701f4beb6bb4b6) & [Output JSON docs for ping endpoint](https://github.com/charliemcelfresh/sarcastic_messages/commit/09cfd3b4cf7df3accf222cd54d7796f5bc33fdb0)
+
+#### [Kirk Chu](https://www.pivotaltracker.com/story/show/116834227)
+
+(https://www.pivotaltracker.com/story/show/116834227)
 
 Write a test for the ping endpoint such that it outputs JSON documentation
 using the [Zipmark RSpec api documentation gem.](https://github.com/zipmark/rspec_api_documentation)
@@ -251,12 +255,6 @@ RSpec.configure do |config|
   end
 end
 ```
-
-
-[Output JSON docs for ping endpoint](https://www.pivotaltracker.com/story/show/116834227)
-
-(https://github.com/charliemcelfresh/sarcastic_messages/commit/09cfd3b4cf7df3accf222cd54d7796f5bc33fdb0)
-
 
 **`.gitignore`**
 ```
