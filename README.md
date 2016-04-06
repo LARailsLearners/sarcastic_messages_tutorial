@@ -1,4 +1,5 @@
-## 1 Set up Rails
+## 1 [Set up Rails](https://github.com/charliemcelfresh/sarcastic_messages/commit/ba43396bd8f6888962c6f36a761a56acc13b3c17)
+#### Richard Cheng
 
 Rails 5  
 Ruby 2.3.0  
