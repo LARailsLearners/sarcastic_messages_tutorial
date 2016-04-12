@@ -601,6 +601,16 @@ Add the simplecov gem, so we get test coverage output
 ---
 ---
 
+### [Create user endpoints](https://www.pivotaltracker.com/story/show/117090017)
+
++ POST `api/v1/users`
++ PUT `api/v1/users`
++ GET `api/v1/users/:id`
++ GET `api/v1/users`
++ Don't forget tests :)
+
+[What is an endpoint?](http://rubywithjendiamond.blogspot.com/2015/09/haiku-add-users-endpoints.html)
+
 **``**
 ```
 
