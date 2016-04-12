@@ -181,6 +181,7 @@ Write a test for the ping endpoint such that it outputs JSON documentation
 using the [Zipmark RSpec api documentation gem.](https://github.com/zipmark/rspec_api_documentation)
 
 ---
+Add rspec-rails gem
 
 **`Gemfile`**
 ```
@@ -200,6 +201,7 @@ end
 group :production do
 end
 ```
+run `Bundle install` and `rails generate rspec:install`
 
 ===
 
@@ -267,6 +269,8 @@ end
 + .byebug_history
 ```
 
+Add rspec_api_documentation gem to your Gemfile.
+
 **`Gemfile`**
 ```
 source 'https://rubygems.org'
@@ -286,279 +290,14 @@ end
 group :production do
 end
 ```
+Then run bundle install
+
 
 ===
 
-**`doc/api/index.html`**
-```
-<!DOCTYPE html>
-<html>
-<head>
-  <title>API Documentation</title>
-  <meta charset="utf-8">
-  <style>
-    
-body {
-  font-family: Helvetica,Arial,sans-serif;
-  font-size: 13px;
-  font-weight: normal;
-  line-height: 18px;
-  color: #404040;
-}
-.container {
-  width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-  zoom: 1;
-}
-pre {
-  background-color: #f5f5f5;
-  display: block;
-  padding: 8.5px;
-  margin: 0 0 18px;
-  line-height: 18px;
-  font-size: 12px;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-td.required .name:after {
-  float: right;
-  content: &quot;required&quot;;
-  font-weight: normal;
-  color: #F08080;
-}
-a{
-  color: #0069d6;
-  text-decoration: none;
-  line-height: inherit;
-  font-weight: inherit;
-}
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  color: #404040;
-}
-h1 {
-  margin-bottom: 18px;
-  font-size: 30px;
-  line-height: 36px;
-}
-h2 {
-  font-size: 24px;
-  line-height: 36px;
-}
-h3{
-  font-size: 18px;
-  line-height: 36px;
-}
-h4 {
-  font-size: 16px;
-  line-height: 36px;
-}
-table{
-  width: 100%;
-  margin-bottom: 18px;
-  padding: 0;
-  border-collapse: separate;
-  font-size: 13px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  border-spacing: 0;
-  border: 1px solid #ddd;
-}
-table th {
-  padding-top: 9px;
-  font-weight: bold;
-  vertical-align: middle;
-  border-bottom: 1px solid #ddd;
-}
-table th+th, table td+td {
-  border-left: 1px solid #ddd;
-}
-table th, table td {
-  padding: 10px 10px 9px;
-  line-height: 18px;
-  text-align: left;
-}
-  </style>
-</head>
-<body>
-<div class="container">
-  <h1>API Documentation</h1>
+Create an acceptance test by making a new directory in the spec folder called acceptance test.
 
-  <div class="article">
-    <h2>MainController</h2>
-
-    <ul>
-      <li>
-        <a href="maincontroller/get_&#39;pong&#39;_without_api_token.html">GET &#39;pong&#39; without api_token</a>
-      </li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>
-```
-===
-
-**`doc/api/maincontroller/get_'pong'_without_api_token.html`**
-```
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>MainController API</title>
-    <meta charset="utf-8">
-    <style>
-      
-body {
-  font-family: Helvetica,Arial,sans-serif;
-  font-size: 13px;
-  font-weight: normal;
-  line-height: 18px;
-  color: #404040;
-}
-.container {
-  width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-  zoom: 1;
-}
-pre {
-  background-color: #f5f5f5;
-  display: block;
-  padding: 8.5px;
-  margin: 0 0 18px;
-  line-height: 18px;
-  font-size: 12px;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-td.required .name:after {
-  float: right;
-  content: "required";
-  font-weight: normal;
-  color: #F08080;
-}
-a{
-  color: #0069d6;
-  text-decoration: none;
-  line-height: inherit;
-  font-weight: inherit;
-}
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  color: #404040;
-}
-h1 {
-  margin-bottom: 18px;
-  font-size: 30px;
-  line-height: 36px;
-}
-h2 {
-  font-size: 24px;
-  line-height: 36px;
-}
-h3{
-  font-size: 18px;
-  line-height: 36px;
-}
-h4 {
-  font-size: 16px;
-  line-height: 36px;
-}
-table{
-  width: 100%;
-  margin-bottom: 18px;
-  padding: 0;
-  border-collapse: separate;
-  font-size: 13px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  border-spacing: 0;
-  border: 1px solid #ddd;
-}
-table th {
-  padding-top: 9px;
-  font-weight: bold;
-  vertical-align: middle;
-  border-bottom: 1px solid #ddd;
-}
-table th+th, table td+td {
-  border-left: 1px solid #ddd;
-}
-table th, table td {
-  padding: 10px 10px 9px;
-  line-height: 18px;
-  text-align: left;
-}
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>MainController API</h1>
-
-      <div class="article">
-        <h2>GET &#39;pong&#39; without api_token</h2>
-        <h3>GET /api/v1/ping</h3>
-
-
-
-          <h3>Request</h3>
-
-            <h4>Headers</h4>
-            <pre class="request headers">Accept: application/json
-Content-Type: application/json
-Host: example.org
-Cookie: </pre>
-
-          <h4>Route</h4>
-          <pre class="request route highlight">GET api/v1/ping</pre>
-
-
-
-
-            <h3>Response</h3>
-              <h4>Headers</h4>
-              <pre class="response headers">X-Frame-Options: SAMEORIGIN
-X-XSS-Protection: 1; mode=block
-X-Content-Type-Options: nosniff
-Content-Type: application/json; charset=utf-8
-ETag: W/&quot;fbbd550d36c494fe568fd87b55e93954&quot;
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 76ef017a-ec97-4efa-b627-63005362d58f
-X-Runtime: 0.017681
-Content-Length: 58</pre>
-            <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
-              <h4>Body</h4>
-              <pre class="response body">{
-  &quot;data&quot;: [
-    {
-      &quot;type&quot;: &quot;responses&quot;,
-      &quot;attributes&quot;: {
-        &quot;pong&quot;: true
-      }
-    }
-  ]
-}</pre>
-      </div>
-    </div>
-  </body>
-</html>
-```
+Make a new file called main_spec.rb and add:
 
 ===
 
@@ -585,6 +324,11 @@ resource 'MainController', type: :request do
   end
 end
 ```
+Run your tests to see if they pass.
+
+Run `rake docs:generate`
+Run `open doc/api/index.html` to see the docs.
+
 
 ---
 ---
@@ -600,16 +344,6 @@ Add the simplecov gem, so we get test coverage output
 
 ---
 ---
-
-### [Create user endpoints](https://www.pivotaltracker.com/story/show/117090017)
-
-+ POST `api/v1/users`
-+ PUT `api/v1/users`
-+ GET `api/v1/users/:id`
-+ GET `api/v1/users`
-+ Don't forget tests :)
-
-[What is an endpoint?](http://rubywithjendiamond.blogspot.com/2015/09/haiku-add-users-endpoints.html)
 
 **``**
 ```
