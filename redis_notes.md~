@@ -282,7 +282,7 @@ while Redis is in charge of holding all the information about daily and total do
 
 ---
 
-### pub/sub pattern
+### [pub/sub pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
 
 **publish–subscribe** is a messaging pattern where senders of messages, called publishers, 
 do not program the messages to be sent directly to specific receivers, called subscribers, 
@@ -290,6 +290,8 @@ do not program the messages to be sent directly to specific receivers, called su
 but instead characterize published messages into classes without knowledge of which subscribers, if any, there may be. 
 
 Similarly, subscribers express interest in one or more classes and only receive messages that are of interest, without knowledge of which publishers, if any, there are.
+
+Pub/sub is a sibling of the message queue paradigm, and is typically one part of a larger message-oriented middleware system. Most messaging systems support both the pub/sub and message queue models in their API.
 
 !(pub/sub diagram)[https://i-msdn.sec.s-msft.com/dynimg/IC141963.gif]
 
