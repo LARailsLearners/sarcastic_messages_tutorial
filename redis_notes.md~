@@ -7,14 +7,14 @@
 Redis maps keys to types of values.  
 A key difference between Redis and other structured storage systems is that  
 **Redis supports not only strings, but also abstract data types:**
-##### Lists of strings
-##### Sets of strings 
++ **Lists of strings**
++ **Sets of strings **
 Collections of non-repeating unsorted elements
-##### Sorted sets of strings
++ **Sorted sets of strings**
 Collections of non-repeating elements ordered by a floating-point number called score
-##### Hash tables
++ **Hash tables**
 Where keys and values are strings
-##### HyperLogLogs
++ **HyperLogLogs**
 Used for approximated set cardinality size estimation.
 
 ===
@@ -62,7 +62,7 @@ with more or less robust options available if needed.
 When you should use NoSQL database instead of an SQL-based relational one. Let's take look at some examples of instances where NoSQL databases give you an advantage. Many NoSQL databases can be used to easily create web applications with customizable fields. You don't have to worry about schema changes and you can still index the fields.
 
 =======
->>>>>>> 10451a963b2dedce8286a432b91a0563d6f073c0
+
 You might have a relational database that you want to keep traffic away from. You can use NoSQL as a caching layer and write code to pull data from the relational database and store it in NoSQL, then you can use NoSQL for your API.
 
 some NoSQL databases allow you to serve full web applications. Your HTML, stylesheets, and JavaScript can be served directly from NoSQL, then you can use the permissions in NoSQL to control who can read and write data. NoSQL databases can be used to build new applications from scratch as well as augment the capabilities of a relational database. Even if you're working with an existing application, you can start using NoSQL databases now to take advantage of their features.
@@ -73,7 +73,6 @@ Redis is not a plain key-value store, actually it is a data structures server, s
 
 http://www.sitepoint.com/introduction-to-using-redis-with-rails/
 
-<<<<<<< HEAD
 ---
 
 http://android.stackexchange.com/questions/108926/what-is-the-difference-between-application-cache-and-data
