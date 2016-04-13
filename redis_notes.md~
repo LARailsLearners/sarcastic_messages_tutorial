@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Redis Notes
 ###### Jen Diamond
 
@@ -49,12 +50,15 @@ with more or less robust options available if needed.
 
 ---
 
+=======
+>>>>>>> 10451a963b2dedce8286a432b91a0563d6f073c0
 + http://squarism.com/2013/05/04/using-redis-as-a-database/
 + http://railscasts.com/episodes/193-tableless-model?autoplay=true
 + http://jimneath.org/2011/03/24/using-redis-with-ruby-on-rails.html
 + http://jimneath.org/2011/03/24/using-redis-with-ruby-on-rails.html#example_uses_in_rails
 + http://billpatrianakos.me/blog/2013/10/14/api-sessions-with-redis-in-rails/
 
+<<<<<<< HEAD
 ---
 
 #### [Up and Running with NoSQL Databases](http://www.lynda.com/Cassandra-tutorials/Exploring-NoSQL-possibilities/111598/117569-4.html)
