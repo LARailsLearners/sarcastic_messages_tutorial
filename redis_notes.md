@@ -4,7 +4,8 @@
 ##### [Redis is a data structure server. It is open-source, networked, in-memory, and stores keys with optional durability. The name Redis means REmote DIctionary Server.](https://en.wikipedia.org/wiki/Redis)
 
 #### Data types
-Redis maps keys to types of values.  
+**Redis maps keys to types of values.**  
+
 A key difference between Redis and other structured storage systems is that  
 **Redis supports not only strings, but also abstract data types:**
 + **Lists of strings**
@@ -27,7 +28,7 @@ Redis supports high-level, atomic, server-side operations like
 + difference between sets
 + sorting of lists, sets and sorted sets
 
-===
+---
 
 #### Persistence
 **Redis typically holds the whole dataset in memory.**  
@@ -36,6 +37,8 @@ Redis supports high-level, atomic, server-side operations like
 ###### Snapshotting
 A semi-persistent durability mode where the dataset is asynchronously transferred from 
 memory to disk from time to time, written in RDB dump format.  
+
+===
 
 ###### AOF
 An append-only file that is written as operations modifying the dataset in memory are processed.  
@@ -61,8 +64,6 @@ with more or less robust options available if needed.
 
 When you should use NoSQL database instead of an SQL-based relational one. Let's take look at some examples of instances where NoSQL databases give you an advantage. Many NoSQL databases can be used to easily create web applications with customizable fields. You don't have to worry about schema changes and you can still index the fields.
 
-=======
-
 You might have a relational database that you want to keep traffic away from. You can use NoSQL as a caching layer and write code to pull data from the relational database and store it in NoSQL, then you can use NoSQL for your API.
 
 some NoSQL databases allow you to serve full web applications. Your HTML, stylesheets, and JavaScript can be served directly from NoSQL, then you can use the permissions in NoSQL to control who can read and write data. NoSQL databases can be used to build new applications from scratch as well as augment the capabilities of a relational database. Even if you're working with an existing application, you can start using NoSQL databases now to take advantage of their features.
@@ -81,8 +82,6 @@ http://android.stackexchange.com/questions/108926/what-is-the-difference-between
 
 + **Data** is the "important" information. This might include credentials and settings that you generally want the app to remember.
 ---
-=======
->>>>>>> 10451a963b2dedce8286a432b91a0563d6f073c0
 
 #### Install Redis
 http://tutorials.jumpstartlab.com/topics/performance/installing_redis.html
@@ -162,7 +161,8 @@ redis 127.0.0.1:6379> lrange tutoriallist 0 10
 **The max length of a list is 232 - 1 elements (4294967295, more than 4 billion of elements per list).**
 
 #### Sets
-Redis Sets are an unordered collection of Strings. In redis you can add, remove, and test for existence of members in O(1) time complexity.
+Redis Sets are an unordered collection of Strings.  
+In redis you can **add**, **remove**, and **test for existence of members** in O(1) time complexity.
 
 Example
 redis 127.0.0.1:6379> sadd tutoriallist redis  
@@ -175,8 +175,8 @@ redis 127.0.0.1:6379> sadd tutoriallist rabitmq
 (integer) 0  
 redis 127.0.0.1:6379> smembers tutoriallist  
 
-1) "rabitmq"
-2) "mongodb"
+1) "rabitmq"  
+2) "mongodb"  
 3) "redis"
 
 **NOTE:** In the above example rabitmq is added twice but due to unique property of set it is added only once.
@@ -221,7 +221,6 @@ This approach is fine for situations where it applies naturally.  However, it's 
 
 Another useful approach is to maintain one or more queues (Redis lists, manipulated by the RPUSH/LPUSH and RPOP/LPOP commands, their B* blocking cousins, or the rather tricky BRPOPLPUSH/RPOPLPUSH commands) which you use for persisting things to more durable bulk storage (such as your SQL RDBMS).  Basically this functions as a work queue listing the keys (and perhaps some form of identifier regarding the canonical data store) that have been changed in Redis and which, therefore, need to be replicated out to your bulk storage.  You can monitor the length of such queues to ensure that you're not experiencing an ever growing backlog.
 
-
 #### Sharding:
 
 Redis doesn't provide sharding.  You should probably assume that you'll grow beyond the capacity of a single Redis server (slaves are for redundancy, not for scaling, though you can offload some read-only operations to slaves if you have some way to manage the data consistency --- for example the ZSET of key/timestamp values describe for expiry can also be used for some offline bulk processing operations; also the pub/sub features can be used for the master to provide hints regarding the quiescence of selected keys/data.
@@ -230,12 +229,11 @@ So you should consider writing your own abstraction layer to provide sharding.  
 
 This is one area, in particular, where I'd like to see a robust third party (or antirez created) library written to handle all the fussy bits.  Consistent hashing isn't difficult ... but it does require quite a bit of carefully written code to implement --- and it's something that should be kept well away from most of your applications coders.  You want something that just works and continues to work even as you add additional server capacity (requiring migration utilities for  all the keys which have been affected) and failures (requiring that you have already handled replication of data to secondary and/or tertiary servers).
 
-
-Decouple your Redis Operations from your Application:
+#### Decouple your Redis Operations from your Application:
 
 I hope you've seen foreshadowing of just how important this suggestion is to every other suggestion I've made.  None of this will work if you have people just using your Redis infrastructure as an ad hoc, bottomless resource.
 
-Don't think of your application as using Redis!
+**Don't think of your application as using Redis!**
 
 You are writing an application which uses a set of services.  It just so happens that (some of) those services are provided by Redis servers.  However, you should treat that as an implementation detail and focus on what services you need and what API you are providing to your application developers to provide them.
 
