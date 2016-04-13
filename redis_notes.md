@@ -52,11 +52,13 @@ with more or less robust options available if needed.
 
 ---
 
-+ http://squarism.com/2013/05/04/using-redis-as-a-database/
-+ http://railscasts.com/episodes/193-tableless-model?autoplay=true
-+ http://jimneath.org/2011/03/24/using-redis-with-ruby-on-rails.html
-+ http://jimneath.org/2011/03/24/using-redis-with-ruby-on-rails.html#example_uses_in_rails
-+ http://billpatrianakos.me/blog/2013/10/14/api-sessions-with-redis-in-rails/
++ [Using a Redis as a Database](http://squarism.com/2013/05/04/using-redis-as-a-database/)
++ [RailsCasts #193 Tableless Model](http://railscasts.com/episodes/193-tableless-model?autoplay=true)
++ [Using Redis with Ruby on Rails](http://jimneath.org/2011/03/24/using-redis-with-ruby-on-rails.html)
++ [API Sessions With Redis in Rails - Oct 14th, 2013](http://billpatrianakos.me/blog/2013/10/14/api-sessions-with-redis-in-rails/)
++ [How Should My Rails App Talk to Redis?](http://www.justinweiss.com/articles/how-should-my-rails-app-talk-to-redis/)
++ [SQL vs NoSQL](http://www.aosabook.org/en/nosql.html)
+In many NoSQL systems, complex query logic is left to the application, resulting in a data store with more predictable query performance because of the lack of variability in queries
 
 ---
 
@@ -271,6 +273,11 @@ https://github.com/ruby-concurrency/concurrent-ruby
 Mutex and ConditionVariable  
 Also check out the Monitor and MonitorMixin classes that are part of the Ruby standard libraries
 
+[An Atomic Rant](http://www.nateware.com/an-atomic-rant.html#.Vw7IB3UrLxM)
+use Redis and redis-objects for all your atomic data needs
+
+[Redis::Objects - Map Redis types directly to Ruby objects](https://github.com/nateware/redis-objects)
+
 ---
 
 ### [Trends in Ruby](https://infinum.co/the-capsized-eight/articles/analyzing-rubygems-stats-v2015)
@@ -294,4 +301,9 @@ Similarly, subscribers express interest in one or more classes and only receive 
 Pub/sub is a sibling of the message queue paradigm, and is typically one part of a larger message-oriented middleware system. Most messaging systems support both the pub/sub and message queue models in their API.
 
 ![pub/sub diagram](https://i-msdn.sec.s-msft.com/dynimg/IC141963.gif)
+
+https://www.toptal.com/ruby-on-rails/the-publish-subscribe-pattern-on-rails
+
+http://redis.io/topics/pubsub
+
 
