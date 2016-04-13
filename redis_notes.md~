@@ -7,14 +7,14 @@
 Redis maps keys to types of values.  
 A key difference between Redis and other structured storage systems is that  
 **Redis supports not only strings, but also abstract data types:**
-+ **Lists of strings**
-+ **Sets of strings **
+##### Lists of strings
+##### Sets of strings 
 Collections of non-repeating unsorted elements
-+ **Sorted sets of strings**
+##### Sorted sets of strings
 Collections of non-repeating elements ordered by a floating-point number called score
-+ **Hash tables**
+##### Hash tables
 Where keys and values are strings
-+ **HyperLogLogs**
+##### HyperLogLogs
 Used for approximated set cardinality size estimation.
 
 ===
