@@ -293,5 +293,5 @@ Similarly, subscribers express interest in one or more classes and only receive 
 
 Pub/sub is a sibling of the message queue paradigm, and is typically one part of a larger message-oriented middleware system. Most messaging systems support both the pub/sub and message queue models in their API.
 
-![pub/sub diagram][https://i-msdn.sec.s-msft.com/dynimg/IC141963.gif]
+![pub/sub diagram](https://i-msdn.sec.s-msft.com/dynimg/IC141963.gif)
 
