@@ -1,7 +1,7 @@
 ## Redis Notes
 ###### Jen Diamond
 
-##### [Redis is a data structure server. It is open-source, networked, in-memory, and stores keys with optional durability. The name Redis means REmote DIctionary Server.](https://en.wikipedia.org/wiki/Redis)
+##### [Redis is a data structure server. It is open-source, networked, in-memory, and stores keys with optional durability. The name Redis means REmote Dictionary Server.](https://en.wikipedia.org/wiki/Redis)
 
 #### Data types
 **Redis maps keys to types of values.**  
@@ -59,6 +59,39 @@ with more or less robust options available if needed.
 + [How Should My Rails App Talk to Redis?](http://www.justinweiss.com/articles/how-should-my-rails-app-talk-to-redis/)
 + [SQL vs NoSQL](http://www.aosabook.org/en/nosql.html)
 In many NoSQL systems, complex query logic is left to the application, resulting in a data store with more predictable query performance because of the lack of variability in queries
++ [Introduction to Using Redis with Rails](http://www.sitepoint.com/introduction-to-using-redis-with-rails/)
+
+---
+
+### Using Redis for Caching
+
+[I18n Backends](http://railscasts.com/episodes/256-i18n-backends?autoplay=true)
+
+[The Complete Guide to Rails Caching](https://www.nateberkopec.com/2015/07/15/the-complete-guide-to-rails-caching.html)
+
+So why cache? The answer is simple. Speed. With Ruby, we don't get speed for free because our language isn't very fast to begin with. We have to get speed from executing less Ruby on each request. The easiest way to do that is with caching. Do the work once, cache the result, serve the cached result in the future.
+
+
+there will always be areas in your app where caching can't help - your POST endpoints, for example. If whatever your app does in response to a POST or PUT is extremely complicated, caching probably won't help you. But if that's the case, consider moving the work into a background worker instead
+
+===
+
+**Create your key (a string) that calls your value and that is the cache that is served up from Redis.**
+
+Rails uses the id & last updated attributes as a **lazy cache** / 
+Use the Rails method `cache` 
+```
+cache do model redis is the back-end
+```
+
+So there is a  rails methed -cache and you would say cache do model-name and get that info. from the redis
+Rails Model Caching with Redis http://www.sitepoint.com/rails-model-caching-redis/
+
+---
+
+You can use an **[apache http access file](https://httpd.apache.org/docs/current/howto/htaccess.html)** for [simple authorization](https://www.digitalocean.com/community/tutorials/how-to-set-up-password-authentication-with-apache-on-ubuntu-14-04) if you don't want to use Active Record 
+
+but if we want to have files that belong to a User then we would need Active Record.
 
 ---
 
@@ -95,16 +128,13 @@ http://tutorials.jumpstartlab.com/topics/performance/installing_redis.html
 
 ### Redis commands
 
-+ $ `sudo service redis-server stop`
++ $ `sudo service redis-server start`
++ $ `redis-cli`
++ $ shutdown && Ctrl C
 
 + $ `redis-server config/initializers/redis.rb`
-
 + $ `sudo service redis-server status`
-
-+ $ `sudo service redis-server start`
-
-+ $ `redis-cli`
-
++ $ `sudo service redis-server stop`
 + $ `sudo service redis-server stop`
 
 ---
@@ -264,25 +294,39 @@ From this picture, we can infer that stateless programs are always thread safe.
 
 ===
 
-**Atomic operation** - An operation during which a processor can simultaneously read a location and write it in the same bus operation. This prevents any other processor or I/O device from writing or reading memory until the operation is complete.  
-Atomic implies indivisibility and irreducibility, so an atomic operation must be performed entirely or not performed at all.
+**Atomic operation** - An operation during which a processor can simultaneously read a location and write it in the same bus operation.  
+This prevents any other processor or I/O device from writing or reading memory until the operation is complete.  
+Atomic implies indivisibility and irreducibility, so **an atomic operation must be performed entirely or not performed at all.**
 
-Modern concurrency tools for Ruby.  
+**Modern concurrency tools for Ruby**  
 https://github.com/ruby-concurrency/concurrent-ruby
 
-Mutex and ConditionVariable  
-Also check out the Monitor and MonitorMixin classes that are part of the Ruby standard libraries
++ [Mutex](http://ruby-doc.org/core-2.2.0/Mutex.html)
++ [ConditionVariable](http://ruby-doc.org/stdlib-2.0.0/libdoc/thread/rdoc/ConditionVariable.html)
++ [Monitor](http://ruby-doc.org/stdlib-2.1.2/libdoc/monitor/rdoc/Monitor.html) and 
++ [MonitorMixin](http://ruby-doc.org/stdlib-2.1.2/libdoc/monitor/rdoc/MonitorMixin.html)
+
+[Monitor (synchronization)](https://en.wikipedia.org/wiki/Monitor_%28synchronization%29)
 
 [An Atomic Rant](http://www.nateware.com/an-atomic-rant.html#.Vw7IB3UrLxM)
 use Redis and redis-objects for all your atomic data needs
 
 [Redis::Objects - Map Redis types directly to Ruby objects](https://github.com/nateware/redis-objects)
 
+===
+
+A **Semaphore** Is Like a Bouncer
+
+Imagine a set of waiting threads, lined up in a queue – much like a lineup in front of a busy nightclub or theatre. A semaphore is like a bouncer at the front of the lineup. He only allows threads to proceed when instructed to do so.
+
+![http://preshing.com/images/sema-intro.png]
+
 ---
 
 ### [Trends in Ruby](https://infinum.co/the-capsized-eight/articles/analyzing-rubygems-stats-v2015)
 
 ##### Details about getting the data
+
 The database infrastructure of rubygems.org consists of a Postgres database and a Redis store - Postgres holds data about gems, gem versions and users 
 
 while Redis is in charge of holding all the information about daily and total downloads per gem and per gem version.
@@ -290,6 +334,8 @@ while Redis is in charge of holding all the information about daily and total do
 ---
 
 ### [pub/sub pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
+
+http://redis.io/topics/pubsub
 
 **publish–subscribe** is a messaging pattern where senders of messages, called publishers, 
 do not program the messages to be sent directly to specific receivers, called subscribers, 
@@ -304,6 +350,51 @@ Pub/sub is a sibling of the message queue paradigm, and is typically one part of
 
 https://www.toptal.com/ruby-on-rails/the-publish-subscribe-pattern-on-rails
 
-http://redis.io/topics/pubsub
+http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html
+
+
+
+---
+
+## Authorization
+
+Is the api_key" field a string?
+Charlie McElfresh·Apr-7 5:06 PM
+@jendiamond yes, it will be a [SecureRandom.uuid](http://ruby-doc.org/stdlib-2.2.2/libdoc/securerandom/rdoc/SecureRandom.html)
+
+#### apache http access file - simple authentication without a server
+
+http_basic_authenticate_with :name => "user", :password => "password" 
+
+##### [http-basic-authentication](http://railscasts.com/episodes/82-http-basic-authentication)
+
+http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Basic.html
+
+---
+---
+
+### Action Cable has been merged into Rails!
+
+## [Action Cable](http://www.sitepoint.com/action-cable-and-websockets-an-in-depth-tutorial/)
+was introduced as a new concept for extending Rails functionality with real-time messaging utilizing WebSockets.
+
+## ApplicationCable::Connection
+is used for general authorization. For example, we could use this module to query the database for a specific user that is making the connection and ensure that they are allowed to listen. For this project, we do not have any users and, thus, need no code here.
+
+---
+---
+
+### Caching
+
+[ActiveRelation scope](http://guides.rubyonrails.org/active_record_querying.html)  
+
+https://devcenter.heroku.com/articles/http-caching-ruby-rails#lazy-loading-of-resources  
+id & last updated -lazy cache / rails methed-cache do model redis is the back-end
+
+---
+
+### [API Sessions With Redis in Rails by Bill Patrianakos](http://billpatrianakos.me/blog/2013/10/14/api-sessions-with-redis-in-rails/)
+
+HTTP Basic, Digest, Token
 
 
